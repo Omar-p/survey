@@ -2,9 +2,7 @@ package com.example.survey.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(
@@ -25,7 +23,7 @@ public class Survey {
   private String title;
 
   @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<Question> questions = new ArrayList<>();
+  private Set<Question> questions = new TreeSet<>(Comparator.comparing(Question::getId));
 
   @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<SurveyResponse> surveyResponses = new ArrayList<>();
@@ -46,12 +44,8 @@ public class Survey {
     this.title = title;
   }
 
-  public List<Question> getQuestions() {
+  public Set<Question> getQuestions() {
     return questions;
-  }
-
-  public void setQuestions(List<Question> questions) {
-    this.questions = questions;
   }
 
   public List<SurveyResponse> getSurveyResponses() {
