@@ -1,7 +1,7 @@
 package com.example.survey.entity;
 
 public enum QuestionType {
-  TEXT,
+  TEXT_ENTRY,
   SINGLE_CHOICE,
-  MULTIPLE_CHOICE
+  MULTIPLE_CHOICES
 }
