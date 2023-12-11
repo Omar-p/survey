@@ -75,6 +75,10 @@ public class Question {
     this.survey = survey;
   }
 
+  public Set<Choice> getChoices() {
+    return choices;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
