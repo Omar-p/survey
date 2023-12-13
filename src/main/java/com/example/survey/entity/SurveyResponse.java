@@ -29,6 +29,18 @@ public class SurveyResponse {
   @OneToMany(mappedBy = "surveyResponse", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<UserAnswer> userAnswers = new ArrayList<>();
 
+  public SurveyResponse() {
+  }
+
+  public SurveyResponse(Survey survey, UUID submissionId, String userEmail, List<UserAnswer> userAnswers) {
+    this.survey = survey;
+    this.submissionId = submissionId;
+    this.userEmail = userEmail;
+    if (userAnswers != null) {
+      this.addUserAnswers(userAnswers);
+    }
+  }
+
   public Long getId() {
     return id;
   }
@@ -58,6 +70,7 @@ public class SurveyResponse {
   }
 
   public void addUserAnswers(List<UserAnswer> answers) {
+    answers.forEach(a -> a.setSurveyResponse(this));
     this.userAnswers.addAll(answers);
   }
 
