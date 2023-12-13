@@ -2,6 +2,7 @@ package com.example.survey.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class UserAnswer {
   @JoinColumn(name = "question_id")
   private Question question;
 
-  @ManyToMany
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinTable(
       name = "user_answer_choice",
       joinColumns = @JoinColumn(name = "user_answer_id"),
@@ -39,6 +40,18 @@ public class UserAnswer {
 
   @Column(nullable = false)
   private boolean answered;
+
+  public UserAnswer() {
+  }
+
+  public UserAnswer(Question question, Collection<Choice> selectedChoices, String textAnswer, boolean answered) {
+    this.question = question;
+    this.textAnswer = textAnswer;
+    this.answered = answered;
+    if (selectedChoices != null) {
+      this.selectedChoices.addAll(selectedChoices);
+    }
+  }
 
   public Long getId() {
     return id;
@@ -80,6 +93,14 @@ public class UserAnswer {
     this.answered = answered;
   }
 
+  public void addSelectedChoice(Choice selectedChoice) {
+    this.selectedChoices.add(selectedChoice);
+  }
+
+  public static UserAnswerBuilder builder() {
+    return new UserAnswerBuilder();
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -87,16 +108,44 @@ public class UserAnswer {
 
     UserAnswer that = (UserAnswer) o;
 
-    if (answered != that.answered) return false;
-    if (!Objects.equals(id, that.id)) return false;
-    return Objects.equals(textAnswer, that.textAnswer);
+    return Objects.equals(id, that.id);
   }
 
   @Override
   public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (textAnswer != null ? textAnswer.hashCode() : 0);
-    result = 31 * result + (answered ? 1 : 0);
-    return result;
+    return id != null ? id.hashCode() : 0;
+  }
+
+  public static class UserAnswerBuilder {
+    private Question question;
+    private boolean answered;
+    private Collection<Choice> selectedChoices;
+
+    private String textAnswer;
+
+    public UserAnswerBuilder question(Question question) {
+      this.question = question;
+      return this;
+    }
+
+    public UserAnswerBuilder answered(boolean answered) {
+      this.answered = answered;
+      return this;
+    }
+
+    public UserAnswerBuilder selectedChoices(Collection<Choice> selectedChoices) {
+      this.selectedChoices = selectedChoices;
+      return this;
+    }
+
+    public UserAnswerBuilder textAnswer(String textAnswer) {
+      this.textAnswer = textAnswer;
+      return this;
+    }
+
+    public UserAnswer build() {
+      return new UserAnswer(question, selectedChoices, textAnswer, answered);
+    }
+
   }
 }
