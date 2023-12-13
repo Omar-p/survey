@@ -1,6 +1,6 @@
 package com.example.survey;
 
-import com.example.survey.entity.QuestionType;
+import com.example.survey.entity.AnswerType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public record QuestionDTO(
     Long id,
     String text,
-    QuestionType type,
+    AnswerType type,
     List<ChoiceDTO> choices,
     boolean required
 ) {

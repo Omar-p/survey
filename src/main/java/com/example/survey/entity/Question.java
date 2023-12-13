@@ -17,7 +17,7 @@ public class Question {
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
-  private QuestionType type;
+  private AnswerType type;
 
   @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
   private Set<Choice> choices = new HashSet<>();
@@ -51,11 +51,11 @@ public class Question {
     this.text = text;
   }
 
-  public QuestionType getType() {
+  public AnswerType getType() {
     return type;
   }
 
-  public void setType(QuestionType type) {
+  public void setType(AnswerType type) {
     this.type = type;
   }
 
