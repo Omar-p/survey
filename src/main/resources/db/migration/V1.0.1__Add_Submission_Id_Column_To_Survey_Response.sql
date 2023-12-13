@@ -1,0 +1,1 @@
+ALTER TABLE survey_response ADD COLUMN submission_id UUID UNIQUE;

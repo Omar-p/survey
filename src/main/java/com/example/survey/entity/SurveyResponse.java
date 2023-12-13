@@ -2,8 +2,7 @@ package com.example.survey.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "survey_response")
@@ -20,6 +19,9 @@ public class SurveyResponse {
   @ManyToOne
   @JoinColumn(name = "survey_id")
   private Survey survey;
+
+  @Column(name = "submission_id", nullable = false)
+  private UUID submissionId;
 
   @Column(nullable = false)
   private String userEmail;
@@ -49,5 +51,21 @@ public class SurveyResponse {
 
   public void setUserEmail(String userEmail) {
     this.userEmail = userEmail;
+  }
+
+  public List<UserAnswer> getUserAnswers() {
+    return this.userAnswers;
+  }
+
+  public void addUserAnswers(List<UserAnswer> answers) {
+    this.userAnswers.addAll(answers);
+  }
+
+  public UUID getSubmissionId() {
+    return this.submissionId;
+  }
+
+  public void setSubmissionId(UUID submissionId) {
+    this.submissionId = submissionId;
   }
 }
