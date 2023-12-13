@@ -62,14 +62,19 @@ public class Choice {
 
     Choice choice = (Choice) o;
 
-    if (!Objects.equals(id, choice.id)) return false;
-    return Objects.equals(text, choice.text);
+    return Objects.equals(id, choice.id);
   }
 
   @Override
   public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (text != null ? text.hashCode() : 0);
-    return result;
+    return id != null ? id.hashCode() : 0;
+  }
+
+  @Override
+  public String toString() {
+    return "Choice{" +
+        "id=" + id +
+        ", text='" + text + '\'' +
+        '}';
   }
 }
