@@ -1,0 +1,85 @@
+= Survey API
+v{0.0.1}, Omar Shabaan, {14-12-2023}
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:highlightjs-theme: github
+:toc: left
+:toclevels: 3
+:sectlinks:
+:sectnums:
+
+[introduction]
+== Introduction
+Welcome to the Survey API, a powerful tool designed to streamline the process of conducting surveys with ease. This API is crafted to offer comprehensive support for collecting responses to various types of questions, including text entry, multiple-choice, and single-choice questions.
+
+
+== Survey Submissions
+
+=== Survey Submissions
+
+==== Retrieve Survey Submissions with All Questions Answered
+
+==== Request
+include::{snippets}/survey-submissions-with-all-questions-answered/http-request.adoc[]
+
+
+==== Response
+include::{snippets}/survey-submissions-with-all-questions-answered/http-response.adoc[]
+
+=== Survey Submissions with Unanswered Optional Question
+
+==== Retrieve Survey Submissions with Unanswered Optional Question
+
+===== Request
+include::{snippets}/survey-submissions-with-unanswered-optional-question/http-request.adoc[]
+
+===== Response
+include::{snippets}/survey-submissions-with-unanswered-optional-question/http-response.adoc[]
+
+
+
+=== Survey Submissions with Missing Required Question
+
+==== Retrieve Survey Submissions with Missing Required Question
+
+===== Request
+include::{snippets}/survey-submissions-with-missing-required-question/http-request.adoc[]
+
+===== Response
+include::{snippets}/survey-submissions-with-missing-required-question/http-response.adoc[]
+
+== Survey Responses
+
+=== Get Survey Response By Submission ID
+
+===== Request
+include::{snippets}/survey-responses-by-submission-id/http-request.adoc[]
+
+===== Response
+include::{snippets}/survey-responses-by-submission-id/http-response.adoc[]
+
+=== Get All Survey Responses By Survey Title
+
+===== Request
+include::{snippets}/survey-responses-by-title/http-request.adoc[]
+
+===== Response
+include::{snippets}/survey-responses-by-title/http-response.adoc[]
+
+=== Get Survey Response By non-existent Submission ID
+
+===== Request
+include::{snippets}/survey-responses-by-submission-id-not-found/http-request.adoc[]
+
+===== Response
+include::{snippets}/survey-responses-by-submission-id-not-found/http-response.adoc[]
+
+
+=== Get Survey Response By non-existent Survey Title
+
+===== Request
+include::{snippets}/survey-responses-by-title-not-found/http-request.adoc[]
+
+===== Response
+include::{snippets}/survey-responses-by-title-not-found/http-response.adoc[]

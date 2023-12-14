@@ -1,0 +1,27 @@
+{
+  "email": "user@example.com",
+  "submissionId": "cd202f36-0d43-40b4-8bb6-3a096fab7936",
+  "surveyTitle": "Sample Survey",
+  "answers": [
+    {
+      "questionId": 1,
+      "choiceIds": [1],
+      "answerType": "SINGLE_CHOICE",
+      "answered": true,
+      "required": true
+    },
+    {
+      "questionId": 2,
+      "choiceIds": [5, 6],
+      "answerType": "MULTIPLE_CHOICES",
+      "answered": true,
+      "required": false
+    },
+    {
+      "questionId": 3,
+      "answerType": "TEXT_ENTRY",
+      "answered": false,
+      "required": true
+    }
+  ]
+}
