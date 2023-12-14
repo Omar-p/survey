@@ -37,6 +37,9 @@ docker-compose up
 ## Documentation
 For detailed information on the API endpoints and usage, please refer to the [Survey App Documentation](https://surveyapidoc.s3.eu-central-1.amazonaws.com/index.html).
 
-The documentation provides comprehensive guidance on utilizing the Survey App API, including details about available endpoints, request formats, and response structures. Make sure to consult the documentation for a seamless integration and utilization of the application's features.
+The documentation is automatically generated from tests to ensure accuracy and consistency.
+
+Make sure to consult the documentation for a seamless integration and utilization of the application's features.
 
 Explore the [Survey App Documentation](https://surveyapidoc.s3.eu-central-1.amazonaws.com/index.html) for a comprehensive reference.
+
