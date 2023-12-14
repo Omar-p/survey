@@ -34,12 +34,15 @@ docker-compose up
 - **Optimized Queries to Eliminate the N+1 Problem:**
   Queries have been optimized to address the N+1 problem effectively. This optimization allows the Apilication to fetch both survey questions and answers in a single call, enhancing performance and reducing database query overhead.
 
+- **API Support:**
+The API supports various question types, including text_entry, single_choice, and multi_choices.
+
+
+
 ## Documentation
 For detailed information on the API endpoints and usage, please refer to the [Survey Api Documentation](https://surveyapidoc.s3.eu-central-1.amazonaws.com/index.html).
 
 The documentation is automatically generated from tests to ensure accuracy and consistency.
 
 Make sure to consult the documentation for a seamless integration and utilization of the Apilication's features.
-
-Explore the [Survey Api Documentation](https://surveyapidoc.s3.eu-central-1.amazonaws.com/index.html) for a comprehensive reference.
 
