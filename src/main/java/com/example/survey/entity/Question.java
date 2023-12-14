@@ -79,6 +79,11 @@ public class Question {
     return choices;
   }
 
+  public void addChoice(Choice choice) {
+    this.choices.add(choice);
+    choice.setQuestion(this);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;

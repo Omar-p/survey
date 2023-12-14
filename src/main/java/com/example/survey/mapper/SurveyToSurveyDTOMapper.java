@@ -1,7 +1,10 @@
-package com.example.survey;
+package com.example.survey.mapper;
 
 import com.example.survey.entity.Question;
 import com.example.survey.entity.Survey;
+import com.example.survey.response.ChoiceDTO;
+import com.example.survey.response.QuestionDTO;
+import com.example.survey.response.SurveyDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

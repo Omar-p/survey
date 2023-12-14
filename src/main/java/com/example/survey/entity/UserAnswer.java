@@ -97,6 +97,9 @@ public class UserAnswer {
     this.selectedChoices.add(selectedChoice);
   }
 
+  public Set<Choice> getSelectedChoices() {
+    return selectedChoices;
+  }
   public static UserAnswerBuilder builder() {
     return new UserAnswerBuilder();
   }

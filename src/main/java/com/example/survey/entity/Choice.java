@@ -24,7 +24,7 @@ public class Choice {
   @Column(nullable = false)
   private String text;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "question_id")
   private Question question;
 

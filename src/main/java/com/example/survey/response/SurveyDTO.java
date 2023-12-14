@@ -1,4 +1,4 @@
-package com.example.survey;
+package com.example.survey.response;
 
 import java.util.List;
 

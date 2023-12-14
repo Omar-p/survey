@@ -1,4 +1,4 @@
-package com.example.survey;
+package com.example.survey.response;
 
 import com.example.survey.entity.AnswerType;
 import com.fasterxml.jackson.annotation.JsonInclude;

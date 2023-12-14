@@ -1,9 +1,13 @@
-package com.example.survey;
+package com.example.survey.service;
 
+import com.example.survey.exception.SurveyNotFoundException;
+import com.example.survey.mapper.SurveyToSurveyDTOMapper;
+import com.example.survey.repository.SurveyRepository;
+import com.example.survey.response.SurveyDTO;
+import com.example.survey.response.SurveyTitle;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class GetSurveyService {
@@ -15,14 +19,13 @@ public class GetSurveyService {
     this.surveyToSurveyDTOMapper = surveyToSurveyDTOMapper;
   }
 
-  SurveyDTO getSurvey(String surveyTitle) {
+  public SurveyDTO getSurvey(String surveyTitle) {
     var survey = surveyRepository.findByTitle(surveyTitle)
         .orElseThrow(() -> new SurveyNotFoundException("Survey with title %s not found".formatted(surveyTitle)));
     return surveyToSurveyDTOMapper.toSurveyResponseDTO(survey);
   }
 
-
-  List<SurveyTitle> getSurveyTitles() {
+  public List<SurveyTitle> getSurveyTitles() {
     return surveyRepository.findAllTitles();
   }
 }

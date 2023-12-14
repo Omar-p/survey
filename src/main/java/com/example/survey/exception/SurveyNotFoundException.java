@@ -1,4 +1,4 @@
-package com.example.survey;
+package com.example.survey.exception;
 
 public class SurveyNotFoundException extends RuntimeException {
 
