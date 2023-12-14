@@ -1,0 +1,25 @@
+services:
+  db:
+    container_name: survey_db
+    image: postgres:16.1
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: survey
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: survey
+    volumes:
+      - survey_db_data:/var/lib/postgresql/data
+  api:
+    container_name: survey_api
+    image: omar077/survey-api:my-build
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/survey
+      SPRING_DATASOURCE_USERNAME: survey
+      SPRING_DATASOURCE_PASSWORD: postgres
+volumes:
+  survey_db_data:
